@@ -101,7 +101,7 @@ ENV/
 .mypy_cache/
 
 # dados privados da instituicao de ensino
-Câmpus/
+campi/
 sistec_cod_cursos/
 ead/
 presencial/
