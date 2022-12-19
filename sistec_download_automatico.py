@@ -14,7 +14,8 @@ get_browser().get('https://sistec.mec.gov.br/')
 time_out = 2.5
 sleep(time_out)
 
-xpath = '//*[@id="tipo"]'
+# Entrada de selecionar perfis
+xpath = '/html/body/div[1]/div[3]/div/div[3]/div/div/form/div/fieldset/div/select'
 while True:
     try:
         select_element = get_browser().find_element(By.XPATH, xpath)
@@ -29,7 +30,7 @@ campi = {
     u'CÂMPUS ANÁPOLIS': '1660636',
     u'CÂMPUS APARECIDA DE GOIÂNIA': '1660641',
     u'CÂMPUS CIDADE DE GOIÁS': '1660637',
-    u'CÂMPUS FORMOSA': '1660650', 
+    u'CÂMPUS FORMOSA': '1660650',
     u'CÂMPUS GOIÂNIA': '1660652',
     u'CÂMPUS GOIÂNIA OESTE': '1660653',
     u'CÂMPUS INHUMAS': '1660662',
@@ -55,6 +56,17 @@ for campus in campi.items():
     sistec_element = get_browser().find_element(By.XPATH, xpath)
     sistec_element.click()
     sleep(time_out)
+
+    # Janela de OK
+    xpath = '/html/body/div[7]/div[1]/div[2]/div/div/div[2]'
+    while True:
+        try:
+            select_element = get_browser().find_element(By.XPATH, xpath)
+        except NoSuchElementException:
+            sleep(time_out)
+            continue
+        select_element.click()
+        break
 
     # clica na aba 'Ciclo de Matrícula'
     xpath = '/html/body/div[2]/div[1]/div[2]/ul[2]/li[2]/a'
