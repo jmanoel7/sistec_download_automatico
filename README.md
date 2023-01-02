@@ -14,7 +14,7 @@ cd sistec_download_automatico
 
 ## Usar o baixador:
 ```sh
-source ./venv/sistec_download_automatico/bin/activate
+source ${HOME}/.local/venv/sistec_download_automatico/bin/activate
 python3.9 sistec_download_automatico.py
 ```
 
